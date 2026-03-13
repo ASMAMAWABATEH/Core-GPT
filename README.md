@@ -6,7 +6,7 @@
 Core-GPT is a research-grade, from-scratch implementation of a GPT-style decoder-only Transformer in PyTorch. It is designed for clarity, correctness, and experimentation. The project uses only low-level PyTorch primitives and standard Python libraries.
 
 ## Features
-- Character-level tokenizer
+- BPE tokenizer (byte-pair encoding)
 - Causal masked multi-head self-attention
 - Decoder-only Transformer blocks
 - Training pipeline with checkpoints, logging, and reproducibility
@@ -75,7 +75,8 @@ The dataset is expected at `data/raw/tiny_shakespeare.txt`.
 python scripts/preprocess_data.py
 ```
 
-This will create `data/processed/tiny_shakespeare.pt` which contains the encoded text tensor and vocabulary.
+This will create `data/processed/tiny_shakespeare.pt` which contains the encoded text tensor and tokenizer metadata.
+You can switch tokenizers if needed, e.g. `--tokenizer char` or adjust merges via `--bpe_merges`.
 
 ## Training
 ```

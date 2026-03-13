@@ -35,8 +35,8 @@ def main() -> None:
 
     model_cfg = _load_yaml(PROJECT_ROOT / args.model_config)["model"]
 
-    data, vocab = load_processed_dataset(PROJECT_ROOT / args.data_path)
-    model_cfg["vocab_size"] = vocab.size
+    data, tokenizer = load_processed_dataset(PROJECT_ROOT / args.data_path)
+    model_cfg["vocab_size"] = tokenizer.vocab_size
 
     split_idx = int(0.9 * data.size(0))
     val_data = data[split_idx:]

@@ -14,12 +14,19 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Preprocess Tiny Shakespeare dataset.")
     parser.add_argument("--raw_path", type=str, default="data/raw/tiny_shakespeare.txt")
     parser.add_argument("--output_path", type=str, default="data/processed/tiny_shakespeare.pt")
+    parser.add_argument("--tokenizer", type=str, choices=["bpe", "char"], default="bpe")
+    parser.add_argument("--bpe_merges", type=int, default=1000)
     args = parser.parse_args()
 
     raw_path = (PROJECT_ROOT / args.raw_path).resolve()
     output_path = (PROJECT_ROOT / args.output_path).resolve()
 
-    build_and_save_dataset(raw_path, output_path)
+    build_and_save_dataset(
+        raw_path,
+        output_path,
+        tokenizer_type=args.tokenizer,
+        bpe_merges=args.bpe_merges,
+    )
     print(f"Saved processed dataset to {output_path}")
 
 

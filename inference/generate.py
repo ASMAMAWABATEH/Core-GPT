@@ -1,16 +1,23 @@
 from __future__ import annotations
 
-from typing import Optional
+from typing import Iterable, Optional, Protocol, List
 
 import torch
 
 from models.gpt import GPT
-from tokenizer.tokenizer import CharTokenizer
+
+
+class Tokenizer(Protocol):
+    def encode(self, text: str) -> List[int]:
+        ...
+
+    def decode(self, ids: Iterable[int]) -> str:
+        ...
 
 
 def generate_text(
     model: GPT,
-    tokenizer: CharTokenizer,
+    tokenizer: Tokenizer,
     prompt: str,
     max_new_tokens: int,
     temperature: float = 1.0,

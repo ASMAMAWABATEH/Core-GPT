@@ -13,7 +13,6 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from datasets.preprocessing import load_processed_dataset
 from inference.generate import generate_text
 from models.gpt import GPT, GPTConfig
-from tokenizer.tokenizer import CharTokenizer
 from utils.checkpoint import load_checkpoint
 
 
@@ -37,10 +36,8 @@ def main() -> None:
 
     model_cfg = _load_yaml(PROJECT_ROOT / args.model_config)["model"]
 
-    data, vocab = load_processed_dataset(PROJECT_ROOT / args.data_path)
-    model_cfg["vocab_size"] = vocab.size
-
-    tokenizer = CharTokenizer(vocab=vocab)
+    data, tokenizer = load_processed_dataset(PROJECT_ROOT / args.data_path)
+    model_cfg["vocab_size"] = tokenizer.vocab_size
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = GPT(GPTConfig(**model_cfg)).to(device)
