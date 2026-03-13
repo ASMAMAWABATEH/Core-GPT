@@ -1,0 +1,14 @@
+training:
+  batch_size: 16
+  learning_rate: 0.0003
+  max_training_steps: 30
+  eval_interval: 1000
+  save_interval: 10
+  grad_clip: 1.0
+  seed: 1337
+  device: auto
+  weight_decay: 0.01
+  num_workers: 0
+  log_interval: 5
+  warmup_steps: 5
+  checkpoint_dir: checkpoints

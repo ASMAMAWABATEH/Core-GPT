@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.dist-info/
+.pytest_cache/
+.venv/
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# Data & artifacts
+data/raw/
+data/processed/
+checkpoints/
+logs/
+runs/
+
+# OS
+.DS_Store
+Thumbs.db
