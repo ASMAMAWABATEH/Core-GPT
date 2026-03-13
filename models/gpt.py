@@ -9,6 +9,7 @@ from torch import nn
 from .embedding import TokenEmbedding
 from .positional_encoding import PositionalEmbedding
 from .transformer_block import TransformerBlock
+from inference.sampling import sample_next_token
 
 
 @dataclass
@@ -93,8 +94,6 @@ class GPT(nn.Module):
         top_p: Optional[float] = None,
         greedy: bool = False,
     ) -> torch.Tensor:
-from inference.sampling import sample_next_token
-
         self.eval()
         for _ in range(max_new_tokens):
             idx_cond = input_ids[:, -self.config.context_length :]
