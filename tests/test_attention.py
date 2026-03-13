@@ -4,9 +4,9 @@ from pathlib import Path
 import torch
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PROJECT_ROOT.parent))
+sys.path.insert(0, str(PROJECT_ROOT))
 
-from scratchgpt.models.attention import MultiHeadSelfAttention
+from models.attention import MultiHeadSelfAttention
 
 
 def test_causal_mask_is_lower_triangular():

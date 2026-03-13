@@ -4,8 +4,8 @@ from typing import Optional
 
 import torch
 
-from scratchgpt.models.gpt import GPT
-from scratchgpt.tokenizer.tokenizer import CharTokenizer
+from models.gpt import GPT
+from tokenizer.tokenizer import CharTokenizer
 
 
 def generate_text(

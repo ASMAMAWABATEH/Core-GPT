@@ -8,10 +8,10 @@ import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-from scratchgpt.training.loss import language_modeling_loss
-from scratchgpt.utils.checkpoint import save_checkpoint
-from scratchgpt.utils.logger import Logger
-from scratchgpt.utils.metrics import perplexity
+from training.loss import language_modeling_loss
+from utils.checkpoint import save_checkpoint
+from utils.logger import Logger
+from utils.metrics import perplexity
 
 
 @dataclass

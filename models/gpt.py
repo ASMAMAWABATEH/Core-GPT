@@ -93,7 +93,7 @@ class GPT(nn.Module):
         top_p: Optional[float] = None,
         greedy: bool = False,
     ) -> torch.Tensor:
-        from scratchgpt.inference.sampling import sample_next_token
+from inference.sampling import sample_next_token
 
         self.eval()
         for _ in range(max_new_tokens):

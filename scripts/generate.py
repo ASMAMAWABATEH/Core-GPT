@@ -8,13 +8,13 @@ import torch
 import yaml
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PROJECT_ROOT.parent))
+sys.path.insert(0, str(PROJECT_ROOT))
 
-from scratchgpt.datasets.preprocessing import load_processed_dataset
-from scratchgpt.inference.generate import generate_text
-from scratchgpt.models.gpt import GPT, GPTConfig
-from scratchgpt.tokenizer.tokenizer import CharTokenizer
-from scratchgpt.utils.checkpoint import load_checkpoint
+from datasets.preprocessing import load_processed_dataset
+from inference.generate import generate_text
+from models.gpt import GPT, GPTConfig
+from tokenizer.tokenizer import CharTokenizer
+from utils.checkpoint import load_checkpoint
 
 
 def _load_yaml(path: Path) -> dict:

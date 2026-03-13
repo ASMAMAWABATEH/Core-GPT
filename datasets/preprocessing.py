@@ -5,8 +5,8 @@ from typing import Dict, Tuple
 
 import torch
 
-from scratchgpt.tokenizer.tokenizer import CharTokenizer
-from scratchgpt.tokenizer.vocab import Vocabulary
+from tokenizer.tokenizer import CharTokenizer
+from tokenizer.vocab import Vocabulary
 
 
 def load_text(path: Path) -> str:

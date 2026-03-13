@@ -9,14 +9,14 @@ import yaml
 from torch.utils.data import DataLoader
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PROJECT_ROOT.parent))
+sys.path.insert(0, str(PROJECT_ROOT))
 
-from scratchgpt.datasets.preprocessing import load_processed_dataset
-from scratchgpt.datasets.text_dataset import TextDataset
-from scratchgpt.models.gpt import GPT, GPTConfig
-from scratchgpt.training.loss import language_modeling_loss
-from scratchgpt.utils.checkpoint import load_checkpoint
-from scratchgpt.utils.metrics import perplexity
+from datasets.preprocessing import load_processed_dataset
+from datasets.text_dataset import TextDataset
+from models.gpt import GPT, GPTConfig
+from training.loss import language_modeling_loss
+from utils.checkpoint import load_checkpoint
+from utils.metrics import perplexity
 
 
 def _load_yaml(path: Path) -> dict:

@@ -9,17 +9,17 @@ import yaml
 from torch.utils.data import DataLoader
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PROJECT_ROOT.parent))
+sys.path.insert(0, str(PROJECT_ROOT))
 
-from scratchgpt.datasets.preprocessing import load_processed_dataset
-from scratchgpt.datasets.text_dataset import TextDataset
-from scratchgpt.models.gpt import GPT, GPTConfig
-from scratchgpt.training.optimizer import build_optimizer
-from scratchgpt.training.scheduler import build_scheduler
-from scratchgpt.training.trainer import Trainer, TrainingConfig
-from scratchgpt.utils.checkpoint import load_checkpoint
-from scratchgpt.utils.logger import Logger
-from scratchgpt.utils.seed import set_seed
+from datasets.preprocessing import load_processed_dataset
+from datasets.text_dataset import TextDataset
+from models.gpt import GPT, GPTConfig
+from training.optimizer import build_optimizer
+from training.scheduler import build_scheduler
+from training.trainer import Trainer, TrainingConfig
+from utils.checkpoint import load_checkpoint
+from utils.logger import Logger
+from utils.seed import set_seed
 
 
 def _load_yaml(path: Path) -> dict:
